@@ -18,6 +18,10 @@ public class TypeServiceImpl implements TypeService{
 
 	@Autowired
 	TypeDao typeDao;
+	public void create()
+	{
+		typeDao.create();
+	}
 	
 	public List<Type> find(Type type) {
 		return typeDao.find(type);

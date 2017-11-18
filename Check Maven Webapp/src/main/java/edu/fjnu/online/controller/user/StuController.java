@@ -13,20 +13,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.fjnu.online.domain.Grade;
 import edu.fjnu.online.domain.MsgItem;
 import edu.fjnu.online.domain.User;
+import edu.fjnu.online.service.CourseService;
+import edu.fjnu.online.service.ErrorBookService;
 import edu.fjnu.online.service.GradeService;
+import edu.fjnu.online.service.PaperService;
+import edu.fjnu.online.service.QuestionService;
+import edu.fjnu.online.service.TypeService;
 import edu.fjnu.online.service.UserService;
 import edu.fjnu.online.util.MD5Util;
-
+import edu.fjnu.online.util.MybatisUtil;
+import team.win.oes.init.InitDatabase;
+import org.apache.log4j.*;
 @Controller
 public class StuController {
 	@Autowired
-	UserService userService;
+	UserService      userService;
 	@Autowired
-	GradeService gradeService;
+	GradeService     gradeService;
+	@Autowired
+	CourseService    courseService;
+	@Autowired
+	ErrorBookService errorBookService;
+	@Autowired
+	PaperService     paperService;
+	@Autowired
+	QuestionService  questionService;
+	@Autowired
+	TypeService      typeService;
+	
+	InitDatabase initDatabase;
+
 	//跳转到前台登录页面
 	@RequestMapping("/toLogin.action")
 	public String toUserLogin(User user, Model model, HttpSession session){
-		//Logger logger = Logger.getLogger(StuController.class);
+		courseService.create();
+		errorBookService.create();
+		gradeService.create();
+		paperService.create();
+		questionService.create();
+		typeService.create();
+		userService.create();
 		if(session.getAttribute("userName")!= null){
 			return "/user/index.jsp";
 		}

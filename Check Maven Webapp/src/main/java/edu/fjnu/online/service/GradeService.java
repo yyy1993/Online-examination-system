@@ -8,6 +8,7 @@ import edu.fjnu.online.domain.Grade;
 import edu.fjnu.online.domain.Question;
 
 public interface GradeService {
+	public void create();
 	public List<Grade> find(Grade grade);
 	public Grade get(int id);
 	public void insert(Grade grade);

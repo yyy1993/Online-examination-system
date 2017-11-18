@@ -23,6 +23,17 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserDao userDao;
+	public void create()
+	{
+		User user = new User();
+		user.setUserId("admin");
+		user.setUserName("admin");
+		user.setUserPwd("admin");
+		user.setUserState(1);
+		user.setUserType(2);;
+		userDao.create();
+		insert(user);
+	}
 	
 	Logger logger = Logger.getLogger(UserServiceImpl.class);
 	public List<User> find(User user) {

@@ -10,6 +10,7 @@ import edu.fjnu.online.domain.Paper;
 import edu.fjnu.online.domain.Question;
 
 public interface PaperService {
+	public void create();
 	public List<Paper> find(Paper paper);
 	public Paper get(Serializable id);
 	public void insert(Paper paper);

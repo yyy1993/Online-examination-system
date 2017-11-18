@@ -17,6 +17,10 @@ public class QuestionServiceImpl implements QuestionService {
 
 	@Autowired
 	QuestionDao questionDao;
+	public void create()
+	{
+		questionDao.create();
+	}
 	
 	public List<Question> find(Question question) {
 		return questionDao.find(question);

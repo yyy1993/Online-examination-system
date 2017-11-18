@@ -8,6 +8,7 @@ import edu.fjnu.online.domain.Course;
 import edu.fjnu.online.domain.Type;
 
 public interface TypeService {
+	public void create();
 	public List<Type> find(Type type);
 	public Type get(int id);
 	public void insert(Type type);

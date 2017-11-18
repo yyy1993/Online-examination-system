@@ -14,6 +14,11 @@ public class ErrorBookServiceImpl implements ErrorBookService {
 
 	@Autowired
 	ErrorBookDao bookDao;
+	public void create()
+	{
+		bookDao.create();
+	}
+	
 	public List<ErrorBook> find(ErrorBook errorBook) {
 		return bookDao.find(errorBook);
 	}

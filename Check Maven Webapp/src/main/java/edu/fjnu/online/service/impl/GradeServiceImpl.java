@@ -20,6 +20,10 @@ public class GradeServiceImpl implements GradeService{
 	
 	@Autowired
 	GradeDao gradeDao;
+	public void create()
+	{
+		gradeDao.create();
+	}
 	
 	public List<Grade> find(Grade grade) {
 		

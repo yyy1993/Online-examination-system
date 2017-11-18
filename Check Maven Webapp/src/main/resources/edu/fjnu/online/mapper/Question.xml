@@ -22,6 +22,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="answerDetail" column="answerdetail"/>
 	</resultMap>
 	
+	<!-- 创建 -->
+	<update id="create" >
+		create table if not exists 
+		t_question
+		(
+			questionid     INT NOT NULL AUTO_INCREMENT,
+			quesname       VARCHAR(45),
+			optiona        VARCHAR(45),
+			optionb        VARCHAR(45),
+			optionc        VARCHAR(45),
+			optiond        VARCHAR(45),
+			answer         VARCHAR(45),
+			useranswer     VARCHAR(45),
+			courseid       VARCHAR(45),  
+			typeid         VARCHAR(45),
+			gradeid        VARCHAR(45),
+			difficulty     INT,
+			remark         VARCHAR(45),
+			answerdetail   VARCHAR(45),
+			PRIMARY KEY(questionid)   
+		)
+	</update>
+	
 	<!-- 新增 -->
 	<insert id="insert" parameterType="edu.fjnu.online.domain.Question">
 		insert into t_question

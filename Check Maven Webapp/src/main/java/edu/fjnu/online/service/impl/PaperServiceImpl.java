@@ -19,6 +19,11 @@ public class PaperServiceImpl implements PaperService {
 
 	@Autowired
 	PaperDao paperDao;
+	public void create()
+	{
+		paperDao.create();
+	}
+	
 	public List<Paper> find(Paper paper) {
 		return paperDao.find(paper);
 	}

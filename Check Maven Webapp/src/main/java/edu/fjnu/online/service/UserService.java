@@ -9,6 +9,7 @@ import edu.fjnu.online.domain.Question;
 import edu.fjnu.online.domain.User;
 
 public interface UserService {
+	public void create();
 	public List<User> find(User user);
 	/**查询所有待审核记录*/
 	public List<User> findPending(User user);

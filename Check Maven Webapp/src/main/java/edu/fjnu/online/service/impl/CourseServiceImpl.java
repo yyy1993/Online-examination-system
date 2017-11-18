@@ -17,6 +17,11 @@ public class CourseServiceImpl implements CourseService {
 
 	@Autowired
 	CourseDao courseDao;
+	public void create()
+	{
+		courseDao.create();
+	}
+	
 	public List<Course> find(Course course) {
 		return courseDao.find(course);
 	}

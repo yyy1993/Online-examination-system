@@ -8,6 +8,7 @@ import edu.fjnu.online.domain.Course;
 import edu.fjnu.online.domain.Grade;
 
 public interface CourseService {
+	public void create();
 	public List<Course> find(Course course);
 	public Course get(int id);
 	public void insert(Course course);

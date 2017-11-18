@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import edu.fjnu.online.domain.Question;
 
 public interface QuestionService {
+	public void create();
 	public List<Question> find(Question question);
 	public Question get(int id);
 	public void insert(Question question);
