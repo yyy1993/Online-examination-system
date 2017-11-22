@@ -18,7 +18,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	if(!!!$('.opt-panel').size() &&　!!!$('.system-switch').size()){
+	if(!!!$('.opt-panel').size() &&!!!$('.system-switch').size()){
 		$(document).click(function(e) {
 			$(top.window.document).find('.opt-panel').hide().end().find('.system-switch').hide();
 			$(top.window.document).find('.more-info').removeClass('active').end().find('.logo-icon').removeClass('active');

@@ -19,6 +19,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="paperState" column="paperstate"/>
 	</resultMap>
 	
+	<!-- 创建 -->
+	<update id="create" >
+		create table if not exists 
+		t_paper
+		(
+			paperid       INT NOT NULL AUTO_INCREMENT,
+			papername     VARCHAR(45),
+			courseid      VARCHAR(45),
+			gradeid       VARCHAR(45),
+			userid        VARCHAR(45),
+			questionid    VARCHAR(45),
+			begintime     VARCHAR(45),
+			endtime       VARCHAR(45),
+			allowtime     VARCHAR(45),  
+			score         VARCHAR(45),
+			paperstate    VARCHAR(45),
+			PRIMARY KEY(paperid)   
+		)
+	</update>
+	
 	<!-- 新增 -->
 	<insert id="insert" parameterType="edu.fjnu.online.domain.Paper">
 		insert into t_paper

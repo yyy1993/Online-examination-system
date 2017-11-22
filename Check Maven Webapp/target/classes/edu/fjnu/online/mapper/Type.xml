@@ -12,6 +12,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="remark" column="remark"/>
 	</resultMap>
 	
+	<!-- 创建 -->
+	<update id="create" >
+		create table if not exists 
+		t_type
+		(
+			typeid         INT NOT NULL AUTO_INCREMENT,
+			typename       VARCHAR(45),
+			score          VARCHAR(45),
+			remark         VARCHAR(45),
+			PRIMARY KEY(typeid)   
+		)
+	</update>
+	
 	<!-- 新增 -->
 	<insert id="insert" parameterType="edu.fjnu.online.domain.Type">
 		insert into t_type

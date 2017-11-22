@@ -22,7 +22,7 @@ import edu.fjnu.online.service.TypeService;
 import edu.fjnu.online.service.UserService;
 import edu.fjnu.online.util.MD5Util;
 import edu.fjnu.online.util.MybatisUtil;
-import team.win.oes.init.InitDatabase;
+//import team.win.oes.init.InitDatabase;
 import org.apache.log4j.*;
 @Controller
 public class StuController {
@@ -41,7 +41,7 @@ public class StuController {
 	@Autowired
 	TypeService      typeService;
 	
-	InitDatabase initDatabase;
+//	InitDatabase initDatabase;
 
 	//跳转到前台登录页面
 	@RequestMapping("/toLogin.action")

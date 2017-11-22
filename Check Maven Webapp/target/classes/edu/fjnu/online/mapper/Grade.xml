@@ -11,6 +11,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="courseId" column="courseid"/>
 	</resultMap>
 	
+	<!-- 创建 -->
+	<update id="create" >
+		create table if not exists 
+		t_grade
+		(
+			gradeid       INT NOT NULL AUTO_INCREMENT,
+			gradename     VARCHAR(45),
+			courseid      VARCHAR(45),
+			PRIMARY KEY(gradeid)
+		)
+	</update>
+	
 	<!-- 新增 -->
 	<insert id="insert" parameterType="edu.fjnu.online.domain.Grade">
 		insert into t_grade

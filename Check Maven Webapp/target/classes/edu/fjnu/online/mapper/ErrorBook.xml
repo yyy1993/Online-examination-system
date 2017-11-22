@@ -30,6 +30,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</association>
 	</resultMap>
 	
+	<!-- 创建 -->
+	<update id="create" >
+		create table if not exists 
+		t_errorbook
+		(
+			bookid       INT NOT NULL AUTO_INCREMENT,
+			userid       VARCHAR(45),
+			courseid     VARCHAR(45),
+			gradeid      VARCHAR(45),
+			typeid       VARCHAR(45),
+			uanswer      VARCHAR(45),
+			questionid   VARCHAR(45),
+			PRIMARY KEY(bookid)
+		)
+	</update>
+	
 	<!-- 新增 -->
 	<insert id="insert" parameterType="edu.fjnu.online.domain.ErrorBook">
 		insert into t_errorbook

@@ -154,7 +154,7 @@ public class PaperController {
 		
 		if(selectNum>0){//选择题
 			map.put("num", selectNum);
-			map.put("typeId", 2);
+			map.put("typeId", 1);
 			
 			selectList = questionService.createPaper(map);
 			paperList.addAll(selectList);
