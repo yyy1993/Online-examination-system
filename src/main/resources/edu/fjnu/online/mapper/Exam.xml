@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.fjnu.online.mapper.ExamMapper">
+
+    <!-- 数据库表映射 -->
+    <resultMap id="examRM" type="edu.fjnu.online.domain.Exam">
+        <id property="examId" column="examid"/>
+        <result property="userId" column="userid"/>
+        <result property="questionsId" column="questionsid"/>
+        <result property="status" column="status"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
+    <!-- 创建 -->
+    <update id="create" >
+        create table if not exists
+        t_exam
+        (
+        examid       VARCHAR(45) NOT NULL,
+        userid       VARCHAR(45),
+        questionsid  VARCHAR(45),
+        status       INT,
+        score        INT,
+        PRIMARY KEY(examid)
+        )
+    </update>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="edu.fjnu.online.domain.Exam">
+        insert ignore into t_exam
+        (examid,userid,questionsid,status,score)
+        values
+        (#{examId},#{userId},#{questionsId},#{status},#{score})
+    </insert>
+
+    <!-- 修改 -->
+    <update id="update" parameterType="edu.fjnu.online.domain.Exam">
+        update t_exam
+        <set>
+            <if test="userId!=null">
+                userid=#{userId},
+            </if>
+            <if test="questionsId!=null">
+                questionsid=#{questionsId},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="score!=null">
+                score=#{score},
+            </if>
+        </set>
+        where examid=#{examId}
+    </update>
+
+    <!-- 查询所有记录 -->
+    <select id="find" parameterType="string" resultMap="examRM">
+        select * from t_exam
+        where 1=1
+        order by examid
+    </select>
+
+    <!-- 查询一个录 -->
+    <select id="get" parameterType="edu.fjnu.online.domain.User" resultMap="examRM">
+        select * from t_exam
+        where examid=#{id}
+    </select>
+
+    <!-- 删除一条记录 -->
+    <delete id="delete" parameterType="string">
+        delete from t_exam
+        where examid=#{id}
+    </delete>
+
+    <!-- 查询所有待考试记录 -->
+    <select id="getExamInfoByUserId" parameterType="string" resultMap="examRM">
+        select * from t_exam
+        where examid=#{id}
+    </select>
+
+    <!-- 查询一个录 -->
+    <select id="getExamInfoByUserIdAndStatus" parameterType="edu.fjnu.online.domain.User" resultMap="examRM">
+        select * from t_exam
+        where userid=#{userId}
+        and status=#{status}
+    </select>
+</mapper>
