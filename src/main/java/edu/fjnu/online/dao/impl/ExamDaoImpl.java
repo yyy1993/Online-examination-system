@@ -9,9 +9,8 @@ import java.util.List;
 @Repository
 public class ExamDaoImpl extends BaseDaoImpl<Exam> implements ExamDao {
     public ExamDaoImpl() {
-        this.setNs("edu.fjnu.online.mapper.CourseMapper.");
+        this.setNs("edu.fjnu.online.mapper.ExamMapper.");
     }
-        //this.setNs("edu.fjnu.online.mapper.ExamMapper.");
 
     public List<Exam> getExamInfoByUserId(String userId) {
         return this.getSqlSession().selectList(this.getNs()+"getExamInfoByUserId",userId);
